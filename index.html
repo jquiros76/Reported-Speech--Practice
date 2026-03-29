@@ -11,13 +11,13 @@
     --surface:#f1eeff;
     --card:#ffffff;
     --border:#e0d9f7;
-    --accent1: #c084fc;
-    --accent2: #f472b6;
-    --accent3: #fbbf24;
+    --accent1: #7c3aed;
+    --accent2: #ec4899;
+    --accent3: #22c55e;
     --green:#16a34a;
     --red:#dc2626;
     --text:#1a1433;
-    --muted:#a096c0;
+    --muted:#6b7280;
   
   --ink:#1a1433;--ink2:#5a4e80;
 }
@@ -30,6 +30,8 @@
     font-family: 'Nunito', sans-serif;
     min-height: 100vh;
     overflow-x: hidden;
+    display: flex;
+  justify-content: center;
   }
 
   body::before {
@@ -42,19 +44,24 @@
   }
 
   .container {
-    max-width: 860px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-    position: relative;
-    z-index: 1;
+   max-width: 680px;
+  width: 100%;
+  padding: 20px 16px 120px;
   }
 
   /* HEADER */
   header {
-    text-align: center;
-    margin-bottom: 48px;
-    animation: fadeDown 0.6s ease both;
-  }
+  text-align: left;
+  margin-bottom: 24px;
+}
+
+h1 {
+  font-size: 1.8rem;
+}
+
+.subtitle {
+  font-size: 13px;
+}
 
   .badge {
     display: inline-block;
@@ -246,28 +253,26 @@
   .progress-bar-bg {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 2px;
-    height: 5px;
+    border-radius: 10px;
+    height: 8px;
     overflow: hidden;
   }
 
   .progress-bar {
     height: 100%;
     background: linear-gradient(90deg, var(--accent1), var(--accent2));
-    border-radius: 2px;
+    border-radius: 10px;
     transition: width 0.4s ease;
   }
 
   /* QUESTION CARD */
-  .question-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 30px;
-    animation: fadeUp 0.3s ease both;
-    position: relative;
-    overflow: hidden;
-  }
+ .question-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
 
   .question-card::after {
     content: '';
@@ -321,13 +326,14 @@
     font-style: normal;
   }
 
-  .question-text {
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: var(--ink);
-  }
+ .question-text {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.direct-speech {
+  font-size: 1.1rem;
+}
 
   .blank {
     display: inline-block;
@@ -344,10 +350,10 @@
     width: 100%;
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 13px 16px;
+    border-radius: 10px;
+    padding: 16px 16px;
     font-family: 'Space Mono', monospace;
-    font-size: 14px;
+    font-size: 16px;
     color: var(--ink);
     outline: none;
     transition: border-color 0.2s;
@@ -378,21 +384,24 @@
   .option-btn {
     background: var(--card);
     border: 1px solid var(--border);
-    border-radius: 2px;
-    padding: 11px 14px;
+    border-radius: 10px;
+    padding: 16px 14px;
     color: var(--ink);
     font-family: 'Space Mono', monospace;
-    font-size: 12px;
+    font-size: 14px; font-weight: 600;
     cursor: pointer;
     text-align: left;
-    transition: all 0.15s;
+    transition: all 0.2s ease;
     line-height: 1.5;
   }
-
-  .option-btn:hover:not(:disabled) { border-color: var(--accent1); color: var(--accent1); }
+  .btn:active {
+  transform: scale(0.96);
+}
+  .option-btn:hover:not(:disabled) { border-color: var(--accent1); color: var(--accent1);transform: scale(1.02) }
   .option-btn.correct { border-color: var(--green); color: var(--green); background: rgba(22,163,74,0.07); }
   .option-btn.incorrect { border-color: var(--red); color: var(--red); background: rgba(220,38,38,0.07); }
   .option-btn:disabled { cursor: default; }
+
 
   /* FEEDBACK */
   .feedback {
@@ -429,7 +438,13 @@
   .btn-primary:hover { background: var(--accent1); color: var(--bg); }
   .btn-secondary { border-color: var(--border); color:var(--muted); }
   .btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
-  .btn-next { border-color: var(--green); color: var(--green); }
+  .btn-next {
+  width: 100%;
+  padding: 16px;
+  font-size: 15px;
+  border-radius: 12px;
+  font-weight: 700;
+}
   .btn-next:hover { background: var(--green); color: var(--bg); }
 
   /* SCORE */
